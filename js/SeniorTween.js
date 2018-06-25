@@ -1,6 +1,6 @@
 // All right reserved for SeniorJs.com
 // copywrite 2018
-// SeniorTween Library V-0.3.1
+// SeniorTween Plugin V-0.3.1
 
 
 // ----------------------- Animation Functions --------------------
@@ -757,7 +757,6 @@ HTMLElement.prototype.mouseTouch = function(wrapID, mouseLRUnit) {
 }
 
 //	-------------------- FADE animates --------------------------------
-//	--------- Choose animation here: https://greensock.com/docs/Easing --------------
 //	$('.el')[0].fadeIn(0.5,Power1.easeInOut);
 Array.prototype.fadeIn = function(time, Easing, callback) {
 	var _this = this,
