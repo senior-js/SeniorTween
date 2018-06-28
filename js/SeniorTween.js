@@ -82,7 +82,7 @@ HTMLElement.prototype.hasClass = function(className) {
 }
 //	$('.el')[0].addClass('p123')
 Array.prototype.addClass = function(className) {
-	if (this.length <= undefined)
+	if (this.length <= 0)
 		return this;
 	for (var i=0; i<this.length; i++) {
 		if (!(this[i].hasClass(className)))
@@ -99,7 +99,7 @@ HTMLElement.prototype.addClass = function(className) {
 }
 //	$('.el')[0].removeClass('p123')
 Array.prototype.removeClass = function(className) {
-	if (this.length <= undefined)
+	if (this.length <= 0)
 		return false;
 	for (var i=0; i<this.length; i++) {
 		if (this[i].hasClass(className))
@@ -116,7 +116,7 @@ HTMLElement.prototype.removeClass = function(className) {
 }
 //	$('.el')[0].toggleClass('p123')
 Array.prototype.toggleClass = function(className) {
-	if (this.length <= undefined)
+	if (this.length <= 0)
 		return false;
 	for (var i=0; i<this.length; i++) {
 		if (!(this[i].hasClass(className)))
@@ -139,7 +139,7 @@ HTMLElement.prototype.toggleClass = function(className) {
 Array.prototype.closestByClass = function(className) {
 	var _this = this,
 		_thisArr = [];
-	if (_this.length <= undefined)
+	if (_this.length <= 0)
 		return false;
 	for (var i=0; i<this.length; i++) {
 		while (!(_this[i].parentNode.hasClass(className))) {
@@ -171,7 +171,7 @@ HTMLElement.prototype.closestByClass = function(className) {
 Array.prototype.closestByID = function(IDName) {
 	var _this = this,
 		_thisArr = [];
-	if (_this.length <= undefined)
+	if (_this.length <= 0)
 		return false;
 	for (var i=0; i<this.length; i++) {
 		while (!(_this[i].parentNode.id === IDName)) {
