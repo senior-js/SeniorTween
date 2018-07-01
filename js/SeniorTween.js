@@ -757,6 +757,7 @@ HTMLElement.prototype.mouseTouch = function(wrapID, mouseLRUnit) {
 }
 
 //	-------------------- FADE animates --------------------------------
+//	--------- Choose animation here: https://greensock.com/docs/Easing --------------
 //	$('.el')[0].fadeIn(0.5,Power1.easeInOut);
 Array.prototype.fadeIn = function(time, Easing, callback) {
 	var _this = this,

@@ -67,6 +67,12 @@
 			color: white;
 			padding: 15px;
 		}
+		.rectangle .Txt {
+			color: whitesmoke;
+			font-size: 17px;
+			padding: 37px 0;
+			display: block;
+		}
 	</style>
 </head>
 <body>
@@ -116,7 +122,9 @@
 	</div>
 	<br><br>
 	<div class="row dragWrapper" style="height: 250px; position: relative; border: 1px solid #ddd;">
-		<div class="rectangle" style="width: 100px; height: 100px; background-color: #AAAAAA; position: relative"></div>
+		<div class="rectangle" style="width: 100px; height: 100px; background-color: #AAAAAA; position: relative">
+			<span class="Txt" style="display: none;">Drag me</span>
+		</div>
 	</div>
 	<br><br>
 	<div class="row text-center">
@@ -253,52 +261,50 @@
 <script>
 	console.log($('.well').closestByID('SM7'));
 
-	setTimeout(function(){
-		$('.fadeIn').on('click', function(){
-			$('.well').fadeIn(1, 'Power1.easeOut');
-		});
-		$('.fadeOut').on('click', function(){
-			$('.well').fadeOut(1, 'Power1.easeOut');
-		});
-		$('.fadeToggle').on('click', function(){
-			$('.well').fadeToggle(1, 'Power1.easeOut');
-		});
+	$('.fadeIn').on('click', function(){
+		$('.well').fadeIn(1, 'Power1.easeOut');
+	});
+	$('.fadeOut').on('click', function(){
+		$('.well').fadeOut(1, 'Power1.easeOut');
+	});
+	$('.fadeToggle').on('click', function(){
+		$('.well').fadeToggle(1, 'Power1.easeOut');
+	});
 
-		$('.slideDown').on('click', function(){
-			$('.well').slideDown(1, 'Power1.easeOut');
-		});
-		$('.slideUp').on('click', function(){
-			$('.well').slideUp(1, 'Power1.easeOut');
-		});
-		$('.slideToggle').on('click', function(){
-			$('.well').slideToggle(1, 'Power1.easeOut');
-		});
+	$('.slideDown').on('click', function(){
+		$('.well').slideDown(1, 'Power1.easeOut');
+	});
+	$('.slideUp').on('click', function(){
+		$('.well').slideUp(1, 'Power1.easeOut');
+	});
+	$('.slideToggle').on('click', function(){
+		$('.well').slideToggle(1, 'Power1.easeOut');
+	});
 
-		$('.rectangle').animate({left: '900px'}, 10, Elastic.easeInOut.config(1, 0.3), function(){
-			console.log('ok');
-		});
+	$('.rectangle').animate({left: '900px'}, 10, Elastic.easeInOut.config(1, 0.3), function(_this){
+		_this.find('.Txt').fadeIn(1);
+	});
 
-		$('.rectangle').seniorDraggable({ handle: $('.rectangle'), wrapper: $('.dragWrapper'),
-			onUpdate: function(O){
-				console.log(O);
-			}, onComplete: function(O){
-				console.log(O);
-			}
-		});
+	$('.rectangle').seniorDraggable({ handle: $('.rectangle'), wrapper: $('.dragWrapper'),
+		onUpdate: function(O){
+			console.log(O);
+		}, onComplete: function(O){
+			console.log(O);
+		}
+	});
 
-		$('#sliderTransparency').seniorSlider({
-			bar: $('#sliderTransparency .Bar'), handle: $('#sliderTransparency .Handle'),
-			Update: function (O, val) {
-				// O = { X:'number', Y:'number', boolX:'number', boolY:'number' }
-				console.log(O, val);
-			}, Complete: function (O, val) {
-				// O = { X:'number', Y:'number', boolX:'number', boolY:'number' }
-				console.log(O, val);
-			}
-		});
+	$('#sliderTransparency').seniorSlider({
+		bar: $('#sliderTransparency .Bar'), handle: $('#sliderTransparency .Handle'),
+		Update: function (O, val) {
+			// O = { X:'number', Y:'number', boolX:'number', boolY:'number' }
+			console.log(O, val);
+		}, Complete: function (O, val) {
+			// O = { X:'number', Y:'number', boolX:'number', boolY:'number' }
+			console.log(O, val);
+		}
+	});
 
-		console.log($('.img-circle')[0].closestByID('pp'));
-	}, 1000);
+	console.log($('.img-circle')[0].closestByID('pp'));
 </script>
 
 </body>
