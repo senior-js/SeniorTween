@@ -1509,11 +1509,9 @@ Array.prototype.css = function(styles, callback) {
 		return _this;
 
 	for (var i=0; i<_this.length; i++) {
-		var tempStyles = _this[i].getAttribute('style');
 		for (var x in styles) {
-			tempStyles += '; ' + x + ':' + styles[x];
+			_this[i].style[x] = styles[x];
 		}
-		_this[i].style.cssText = tempStyles;
 	}
 
 	if (callback != null) callback(_this);
@@ -1523,12 +1521,9 @@ HTMLElement.prototype.css = function(styles, callback) {
 	var _this = this;
 	if (this == undefined)
 		return this;
-
-	var tempStyles = _this.getAttribute('style');
 	for (var x in styles) {
-		tempStyles += '; ' + x + ':' + styles[x];
+		_this.style[x] = styles[x];
 	}
-	_this.style.cssText = tempStyles;
 
 	if (callback != null) callback(_this);
 	return _this;
