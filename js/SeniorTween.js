@@ -1502,6 +1502,37 @@ HTMLElement.prototype.fadeToggle = function(time, Easing, callback) {
 
 	return _this;
 }
+//	$('.el')[0].css({'padding-right': '25px'});
+Array.prototype.css = function(styles, callback) {
+	var _this = this;
+	if (_this.length <= 0)
+		return _this;
+
+	for (var i=0; i<_this.length; i++) {
+		var tempStyles = _this[i].getAttribute('style');
+		for (var x in styles) {
+			tempStyles += '; ' + x + ':' + styles[x];
+		}
+		_this[i].style.cssText = tempStyles;
+	}
+
+	if (callback != null) callback(_this);
+	return _this;
+}
+HTMLElement.prototype.css = function(styles, callback) {
+	var _this = this;
+	if (this == undefined)
+		return this;
+
+	var tempStyles = _this.getAttribute('style');
+	for (var x in styles) {
+		tempStyles += '; ' + x + ':' + styles[x];
+	}
+	_this.style.cssText = tempStyles;
+
+	if (callback != null) callback(_this);
+	return _this;
+}
 //	$('.el')[0].animate({opacity: 0.2, width: '10px'},2,'Power1.easeInOut', function(){
 //		console.log('ok');
 //	});

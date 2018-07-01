@@ -281,16 +281,17 @@
 		$('.well').slideToggle(1, 'Power1.easeOut');
 	});
 
-	$('.rectangle').animate({left: '900px'}, 10, Elastic.easeInOut.config(1, 0.3), function(_this){
+	$('.rectangle').animate({left: '1070px'}, 10, Elastic.easeInOut.config(1, 0.3), function(_this){
+		_this.css({'cursor': 'move'});
 		_this.find('.Txt').fadeIn(1);
-	});
 
-	$('.rectangle').seniorDraggable({ handle: $('.rectangle'), wrapper: $('.dragWrapper'),
-		onUpdate: function(O){
-			console.log(O);
-		}, onComplete: function(O){
-			console.log(O);
-		}
+		$('.rectangle').seniorDraggable({ handle: $('.rectangle'), wrapper: $('.dragWrapper'),
+			onUpdate: function(O){
+				console.log(O);
+			}, onComplete: function(O){
+				console.log(O);
+			}
+		});
 	});
 
 	$('#sliderTransparency').seniorSlider({
